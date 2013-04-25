@@ -3,4 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+  body
+    include logo
+    div#container!= body
+    include footer

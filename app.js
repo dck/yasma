@@ -4,7 +4,8 @@
  */
 
 var express = require('express')
-  , routes = require('./routes');
+  , routes = require('./routes')
+  , config = require('./config');
 
 var app = module.exports = express.createServer();
 
@@ -18,6 +19,7 @@ app.configure(function(){
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+  app.set('config', config);
 });
 
 app.configure('development', function(){
@@ -29,7 +31,6 @@ app.configure('production', function(){
 });
 
 // Routes
-
 app.get('/', routes.index);
 
 app.listen(3000, function(){

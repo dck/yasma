@@ -1,7 +1,25 @@
+html,
+body,
+p,
+div,
+h1. h2,
+h3,
+span {
+  margin: 0px;
+  padding: 0px;
+}
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-a {
-  color: #00b7ff;
+#head {
+  text-align: center;
+}
+#logo {
+  color: #383838;
+  font: 50px "Lucida Grande", Helvetica, Arial;
+  margin-top: 60px;
+}
+#descr {
+  color: #898989;
+  font: 15px sams-serif;
 }
