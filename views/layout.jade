@@ -8,12 +8,9 @@ html
     div#container
         #menu
             ul
-              li.first
-                a(href='#') Rating
-              li
-                a(href='#') Graphics
-              li.last
-                a(href='#') Statistics
+                each item in menu
+                    li
+                        a(href='/#{item}')= item
             #clear
         #content!= body
     include footer
