@@ -1,5 +1,8 @@
 logoColor = #383838
 descrColor = #898989
+footerColor = #999999
+mainColor = #7ca5d1
+backgroundColor = #fcfcfc
 
 html, body, p, div, h1. h2, h3, span
     margin: 0px
@@ -10,14 +13,51 @@ body
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
 
 
+#clear
+    clear: left
+
 #head
     text-align: center
+    margin-bottom: 60px
 
 #logo
     color: logoColor
-    font: 50px "Lucida Grande", Helvetica, Arial
+    font: 50px sans-serif, Helvetica, Arial
     margin-top: 60px
+    letter-spacing: 0.35em
+#logo:first-letter
+    color: mainColor
 
 #descr
     color: descrColor
     font: 15px sams-serif
+#descr:first-letter
+    color: mainColor
+
+#container
+    width: 860px
+    height: auto
+    background: backgroundColor
+    margin: 5px auto;
+    padding: 40px
+
+#menu
+    width: 100%
+    
+#menu ul
+    margin: 0px
+    padding: 0px
+    float: left
+  
+#menu ul li a
+    float: left
+    text-decoration: none
+    color: white
+    padding: 10.5px 11px
+    background-color: #333
+
+
+#footer
+    text-align: center
+    color: footerColor
+    font: 12px "Courier New"

@@ -11,15 +11,53 @@ span {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+#clear {
+  clear: left;
+}
 #head {
   text-align: center;
+  margin-bottom: 60px;
 }
 #logo {
   color: #383838;
-  font: 50px "Lucida Grande", Helvetica, Arial;
+  font: 50px sans-serif, Helvetica, Arial;
   margin-top: 60px;
+  letter-spacing: 0.35em;
+}
+#logo:first-letter {
+  color: #7ca5d1;
 }
 #descr {
   color: #898989;
   font: 15px sams-serif;
+}
+#descr:first-letter {
+  color: #7ca5d1;
+}
+#container {
+  width: 860px;
+  height: auto;
+  background: #fcfcfc;
+  margin: 5px auto;
+  padding: 40px;
+}
+#menu {
+  width: 100%;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  float: left;
+}
+#menu ul li a {
+  float: left;
+  text-decoration: none;
+  color: #fff;
+  padding: 10.5px 11px;
+  background-color: #333;
+}
+#footer {
+  text-align: center;
+  color: #999;
+  font: 12px "Courier New";
 }

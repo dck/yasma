@@ -5,5 +5,15 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     include logo
-    div#container!= body
+    div#container
+        #menu
+            ul
+              li.first
+                a(href='#') Rating
+              li
+                a(href='#') Graphics
+              li.last
+                a(href='#') Statistics
+            #clear
+        #content!= body
     include footer
