@@ -1,10 +1,15 @@
-
+db = require('../db')
 /*
  * GET home page.
  */
 
 exports.index = function(req, res){
-  res.render('index', req.app.settings.config);
+  res.render('index', {
+  	title: req.app.settings.config.title,
+  	logo: req.app.settings.config.logo,
+	description: req.app.settings.config.description,
+	users: db.getUsers()
+  });
 };
 
 exports.graphs = function(req, res){

@@ -27,5 +27,8 @@ exports.end = function() {
 	})
 }
 
+exports.getUsers = function() {
+	return ["2", "3"]
+}
 
 

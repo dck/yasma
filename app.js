@@ -11,19 +11,7 @@ var express = require('express')
 
 var app = module.exports = express.createServer();
 
-
 db.connect(config.db);
-db.end();
-// var connection = mysql.createConnection(config.db);
-
-// connection.query('show tables', function(err, rows, fields) {
-//   if (err) throw err;
-
-//   console.log(fields);
-// });
-
-// connection.end();
-
 
 // Configuration
 
@@ -54,3 +42,5 @@ app.get('/stats', routes.stats);
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+
+//db.end();
