@@ -4,10 +4,26 @@
  */
 
 var express = require('express')
+  , db = require('./db')
   , routes = require('./routes')
   , config = require('./config');
 
+
 var app = module.exports = express.createServer();
+
+
+db.connect(config.db);
+db.end();
+// var connection = mysql.createConnection(config.db);
+
+// connection.query('show tables', function(err, rows, fields) {
+//   if (err) throw err;
+
+//   console.log(fields);
+// });
+
+// connection.end();
+
 
 // Configuration
 
