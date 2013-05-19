@@ -28,9 +28,12 @@ exports.end = function() {
 }
 
 exports.getUsers = function(cb) {
-	connection.query('SELECT user_id as id, name FROM users', function(err, rows, fields) {
+	connection.query('SELECT name FROM apps', function(err, apps, fields) {
 		if (err) throw err;
-		cb(rows);
+		connection.query('SELECT user_id as id, name FROM users', function(err, users, fields) {
+			if (err) throw err;
+			cb(apps, users);
+		});
 	});
 }
 
