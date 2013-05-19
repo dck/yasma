@@ -1,4 +1,14 @@
-p Text on index page
-each user in users
-	div= user
-	br
+select(size=1)#picker
+    each game in games
+        option= game
+div#userlist
+    div.head Place
+    div.head Name
+    div.head Score
+
+    each user in users
+        div.user
+            div.id= user.id
+            div.name= user.name
+            div.score asd
+            div#clear

@@ -4,12 +4,17 @@ db = require('../db')
  */
 
 exports.index = function(req, res){
-  res.render('index', {
-  	title: req.app.settings.config.title,
-  	logo: req.app.settings.config.logo,
-	description: req.app.settings.config.description,
-	users: db.getUsers()
-  });
+    var cb = function(users) {
+        res.render('index', {
+            title: req.app.settings.config.title,
+            logo: req.app.settings.config.logo,
+            description: req.app.settings.config.description,
+            users: users,
+            games: ["asd", "victo"]
+        });
+    }
+    db.getUsers(cb);
+
 };
 
 exports.graphs = function(req, res){

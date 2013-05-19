@@ -16,13 +16,13 @@ body {
 }
 #head {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 #logo {
   color: #383838;
   font: 50px sans-serif, Helvetica, Arial;
   margin-top: 60px;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.3em;
 }
 #logo:first-letter {
   color: #7ca5d1;
@@ -30,9 +30,7 @@ body {
 #descr {
   color: #898989;
   font: 15px sams-serif;
-}
-#descr:first-letter {
-  color: #7ca5d1;
+  margin-left: -5px;
 }
 #container {
   width: 860px;
@@ -40,6 +38,10 @@ body {
   background: #fcfcfc;
   margin: 5px auto;
   padding: 5px;
+}
+#container #picker {
+  margin: 15px;
+  width: 100px;
 }
 #menu {
   width: 100%;
@@ -62,6 +64,31 @@ body {
   padding: 10px 15px;
   margin: 10px;
   font-variant: small-caps;
+}
+#userlist {
+  width: 100%;
+}
+.user {
+  margin: 0px;
+  padding: 0px;
+}
+.user .id {
+  color: #f00;
+  float: left;
+  width: 20;
+  border: 1px solid #000;
+}
+.user .name {
+  color: #f0f;
+  float: left;
+  width: 50%;
+  border: 1px solid #000;
+}
+.user .score {
+  color: #fc0cfc;
+  float: left;
+  width: 30%;
+  border: 1px solid #000;
 }
 #footer {
   text-align: center;

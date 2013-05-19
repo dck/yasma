@@ -18,21 +18,20 @@ body
 
 #head
     text-align: center
-    margin-bottom: 60px
+    margin-bottom: 40px
 
 #logo
     color: logoColor
     font: 50px sans-serif, Helvetica, Arial
     margin-top: 60px
-    letter-spacing: 0.35em
+    letter-spacing: 0.3em
 #logo:first-letter
     color: mainColor
 
 #descr
     color: descrColor
     font: 15px sams-serif
-#descr:first-letter
-    color: mainColor
+    margin-left: -5px
 
 #container
     width: 860px
@@ -40,6 +39,10 @@ body
     background: backgroundColor
     margin: 5px auto;
     padding: 5px
+
+#container #picker
+    margin: 15px
+    width: 100px
 
 #menu
     width: 100%
@@ -63,7 +66,29 @@ body
     margin: 10px
     font-variant: small-caps
 
+#userlist
+    width:100%
 
+.user
+    margin: 0px
+    padding: 0px
+
+.user .id
+    color: #ff0000
+    float: left
+    width: 20
+    border: 1px solid black
+.user .name
+    color: #ff00ff
+    float: left
+    width: 50%
+    border: 1px solid black
+
+.user .score
+    color: #fc0cfc
+    float: left
+    width: 30%
+    border: 1px solid black
 
 #footer
     text-align: center
