@@ -66,29 +66,35 @@ body {
   font-variant: small-caps;
 }
 #userlist {
-  width: 100%;
+  width: 80%;
+}
+#userlist .idhead {
+  float: left;
+  width: 20%;
+}
+#userlist .namehead {
+  float: left;
+  width: 60%;
+}
+#userlist .scorehead {
+  float: left;
+  width: 20%;
 }
 .user {
   margin: 0px;
   padding: 0px;
 }
 .user .id {
-  color: #f00;
   float: left;
-  width: 20;
-  border: 1px solid #000;
+  width: 20%;
 }
 .user .name {
-  color: #f0f;
   float: left;
-  width: 50%;
-  border: 1px solid #000;
+  width: 60%;
 }
 .user .score {
-  color: #fc0cfc;
   float: left;
-  width: 30%;
-  border: 1px solid #000;
+  width: 20%;
 }
 #footer {
   text-align: center;
