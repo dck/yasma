@@ -41,5 +41,22 @@ exports.getPlayersStat = function(cb, game) {
 	});
 }
 
+//players, apps, installs, plays
+exports.getStats = function(cb) {
+	connection.query('SELECT count(*) as value from users union all\
+		SELECT count(*) from apps union all\
+		SELECT count(*) from installations union all\
+		SELECT count(*) from log', function(err, r, fields) {
+		if (err) throw err;
+		cb(	r[0].value,
+		   	r[1].value,
+			r[2].value,
+			r[3].value);
+	});
+}
+
+
+
+
 
 

@@ -38,7 +38,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 app.get('/graphs', routes.graphs);
 app.get('/stats', routes.stats);
-app.get('/playerstats/:game', routes.getstats);
+app.get('/playerstats/:game', routes.getPlayerStats);
 
 app.listen(3000, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
