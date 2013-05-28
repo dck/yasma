@@ -27,14 +27,19 @@ exports.end = function() {
 	})
 }
 
-exports.getUsers = function(cb) {
+exports.getGames = function(cb) {
 	connection.query('SELECT name FROM apps', function(err, apps, fields) {
 		if (err) throw err;
-		connection.query('SELECT user_id as id, name FROM users', function(err, users, fields) {
-			if (err) throw err;
-			cb(apps, users);
-		});
+		cb(apps);
 	});
 }
+
+exports.getPlayersStat = function(cb) {
+//	connection.query('SELECT name FROM apps', function(err, apps, fields) {
+//		if (err) throw err;/
+		cb("fdfdfapps");
+//	});
+}
+
 
 
