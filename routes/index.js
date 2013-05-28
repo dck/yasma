@@ -27,10 +27,10 @@ exports.stats = function(req, res){
 exports.getstats = function(req, res){
     var cb = function(data) {
         res.writeHead(200, {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'application/json',
             'Content-Length': data.length
         });
         res.end(data);
     }
-    db.getPlayersStat(cb);
+    db.getPlayersStat(cb, req.params.game);
 };

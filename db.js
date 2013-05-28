@@ -34,11 +34,11 @@ exports.getGames = function(cb) {
 	});
 }
 
-exports.getPlayersStat = function(cb) {
-//	connection.query('SELECT name FROM apps', function(err, apps, fields) {
-//		if (err) throw err;/
-		cb("fdfdfapps");
-//	});
+exports.getPlayersStat = function(cb, game) {
+	connection.query('SELECT user, score from users_stat WHERE app = ' + connection.escape(game), function(err, users, fields) {
+		if (err) throw err;
+		cb(JSON.stringify(users));
+	});
 }
 
 
