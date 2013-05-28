@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $('#picker').change(function() {
+    $('#apppicker').change(function() {
         var game = this.value;
         ///playerstats/:game
         $.get('/playerstats/' + game, function(data) {

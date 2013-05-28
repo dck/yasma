@@ -37,15 +37,23 @@ body
     width: 860px
     height: auto
     background: backgroundColor
-    margin: 5px auto;
+    margin: 5px auto
     padding: 5px
+    text-align: center
 
-#container #picker
+#container .picker
     margin: 15px
-    width: 100px
+    width: 240px
+    height: 34px
+    overflow: hidden
+    background: #ddd;
+    border: 1px solid #ccc
+    font-size: 24px
+    color: descrColor
 
 #menu
     width: 100%
+    margin-left: 200px
     
 #menu ul
     margin: 0px
@@ -65,6 +73,7 @@ body
     padding: 10px 15px
     margin: 10px
     font-variant: small-caps
+    border-radius: 10px
 
 #userlist
     width:80%
@@ -99,3 +108,26 @@ body
     text-align: center
     color: footerColor
     font: 12px "Courier New"
+
+.statscontainer
+    width: 60%
+    padding: 15px
+    background: descrColor
+    padding-left: 40px
+    border-radius: 10px
+    padding-top: 28px
+    margin-left: 140px
+    text-align: left
+
+.statscontainer .title
+    float: left
+    color: backgroundColor
+    margin-bottom: 15px
+    width: 300px
+    font-variant: small-caps
+    font-size: 18px
+
+.statscontainer .number
+    color: logoColor
+    font-variant: small-caps
+    font-size: 18px    
