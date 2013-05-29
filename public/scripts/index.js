@@ -49,8 +49,6 @@ function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
     $.get('/appstats/' + platform + '/' + app, function(data) {
-
         console.log(data);
-
     });
 };

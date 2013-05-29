@@ -66,6 +66,10 @@ exports.getAppStat = function(cb, platform, app) {
 	{
 		sql_req += ' WHERE app =' + connection.escape(app);
 	}
+	else
+	{
+		sql_req += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
+	}
 	connection.query(sql_req, function(err, data, fields) {
 		if (err) throw err;
 		cb(JSON.stringify(data));
