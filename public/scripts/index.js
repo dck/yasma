@@ -64,7 +64,7 @@ function drawLineChart(table,descr,container) {
     var data = google.visualization.arrayToDataTable(rows);
 
     var options = {
-      title: descr+'number',
+      title: descr+' number',
       hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
     };
 
