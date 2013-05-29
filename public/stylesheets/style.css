@@ -11,6 +11,10 @@ span {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+a.main {
+  text-decoration: none;
+  color: #383838;
+}
 #clear {
   clear: left;
 }
@@ -19,7 +23,6 @@ body {
   margin-bottom: 30px;
 }
 #logo {
-  color: #383838;
   font: 50px sans-serif, Helvetica, Arial;
   margin-top: 60px;
   letter-spacing: 0.3em;
