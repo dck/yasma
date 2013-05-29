@@ -115,7 +115,12 @@ function obtainGraphData(users) {
         var launches = data[1];
         console.log(installs);
         console.log(launches);
-        drawLineChart(installs,'Installations','installschart');
-        drawLineChart(launches,'Launches','launcheschart');
+        if(installs.length!=0)
+        {
+            drawLineChart(installs,'Installations','installschart');
+        }
+        if(launches.length!=0)
+            drawLineChart(launches,'Launches','launcheschart');
+        }
     });
 };
