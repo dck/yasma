@@ -80,7 +80,8 @@ function drawLineChart(table,descr,container) {
 };
 
 function drawPieChart(table,name,descr,container) {
-    var rows = [name,descr];
+    var rows = [];
+    rows.push([name,descr]);
     for (var i = 0; i<table.length; i++) {
         rows.push([table[i].name, table[i].count]);
     }
