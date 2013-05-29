@@ -52,32 +52,28 @@ exports.getPlayersStat = function(cb, game) {
 }
 
 exports.getAppStat = function(cb, platform, app) {
-	var sql_req1 = 'SELECT app, platform, date, count(*) AS count from installations_stat';
-	var sql_req2 = 'SELECT app, platform, date, count(*) AS count from launches_stat';
+	var left = 'SELECT app, platform, month(date), count(*) AS count FROM ';
+	var right = '';
 
 	if (platform == -1 && app == -1)
 	{
 	}
 	else if (app == -1)
 	{
-		sql_req1 += ' WHERE platform =' + connection.escape(platform);
-		sql_req2 += ' WHERE platform =' + connection.escape(platform);
+		right += ' WHERE platform =' + connection.escape(platform);
 	}
 	else if (platform == -1)
 	{
-		sql_req1 += ' WHERE app =' + connection.escape(app);
-		sql_req2 += ' WHERE app =' + connection.escape(app);
+		right += ' WHERE app =' + connection.escape(app);
 	}
 	else
 	{
-		sql_req1 += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
-		sql_req2 += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
+		right += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
 	}
-	sql_req1 += ' GROUP BY date';
-	sql_req2 += ' GROUP BY date';
-	connection.query(sql_req1, function(err, installs, fields1) {
+	right += ' GROUP BY month';
+	connection.query(left + 'installations_stat' + right, function(err, installs, fields1) {
 		if (err) throw err;
-		connection.query(sql_req2, function(err, launches, fields2) {
+		connection.query(left + 'launches_stat' + right, function(err, launches, fields2) {
 			if (err) throw err;
 			cb(JSON.stringify([installs, launches]));
 		});

@@ -58,14 +58,14 @@ function drawLineChart(table,descr,container) {
     var rows = [];
     rows.push(['Month',descr]);
     for (var i = 0; i<table.length; i++) {
-        rows.push([i, table[i].count]);
+        rows.push([table[i].month, table[i].count]);
     }
 
     var data = google.visualization.arrayToDataTable(rows);
 
     var options = {
       title: descr+'number',
-      hAxis: {title: 'Time',  titleTextStyle: {color: 'red'}}
+      hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
     };
 
     var chart = new google.visualization.AreaChart(document.getElementById(container));
@@ -76,7 +76,6 @@ function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
     $.get('/appstats/' + platform + '/' + app, function(data) {
-        console.log(data);
         var installs = data[0];
         var launches = data[1];
         drawLineChart(installs,'Installations','installschart');
