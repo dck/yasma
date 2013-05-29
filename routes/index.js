@@ -75,5 +75,6 @@ exports.getAppPieStats = function(req, res){
         });
         res.end(data);
     }
-    db.getAppStat(cb);
+    console.log("sd");
+    db.getAppPieStat(cb);
 };
