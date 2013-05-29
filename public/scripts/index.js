@@ -58,14 +58,14 @@ function drawLineChart(table,descr,container) {
     var rows = [];
     rows.push(['Month',descr]);
     for (var i = 0; i<table.length; i++) {
-        rows.push([int(table[i].month), table[i].count]);
+        rows.push([table[i].month, table[i].count]);
     }
 
     var data = google.visualization.arrayToDataTable(rows);
 
     var options = {
-      title: descr+' number',
-      hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
+        title: descr+' number',
+        hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
     };
 
     var chart = new google.visualization.AreaChart(document.getElementById(container));
