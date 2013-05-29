@@ -49,7 +49,7 @@ function drawLineChart(table) {
     var rows = [];
     rows.push(['Month','Installations']);
     for (var i = 0; i<table.length; i++) {
-        rows.push(i, table[i].count);
+        rows.push([i, table[i].count]);
     }
 
     var data = google.visualization.arrayToDataTable(rows);
