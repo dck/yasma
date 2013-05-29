@@ -66,3 +66,14 @@ exports.getAppStats = function(req, res){
     }
     db.getAppStat(cb, req.params.platform, req.params.app);
 };
+
+exports.getAppPieStats = function(req, res){
+    var cb = function(data) {
+        res.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Content-Length': data.length
+        });
+        res.end(data);
+    }
+    db.getAppStat(cb);
+};

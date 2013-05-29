@@ -38,6 +38,7 @@ $( document ).ready(function() {
         obtainGraphData();
     });
 
+    obtainPieStatData();
 });
 
 function drawUserTable(users) {
@@ -72,6 +73,34 @@ function drawLineChart(table,descr,container) {
     var chart = new google.visualization.AreaChart(document.getElementById(container));
     chart.draw(data, options);
 };
+
+function drawPieChart(table,name,descr,container) {
+    var rows = [name,descr];
+    for (var i = 0; i<table.length; i++) {
+        rows.push([table[i].name, table[i].count]);
+    }
+
+    var data = google.visualization.arrayToDataTable(rows);
+
+    var options = {
+        title: descr+' number',
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById(container));
+    chart.draw(data, options);
+}
+
+
+function obtainPieStatData(users) {
+    $.get('/apppiestats/', function(data) {
+        var plat_inst = data[0];
+        var app_inst = data[1];
+        console.log(plat_inst);
+        console.log(app_inst);
+        drawPieChart(plat_inst, 'Platform', 'Installations', 'platinstchart');
+        drawPieChart(plat_inst, 'Applications', 'Installations', 'appinstchart');
+    });
+}
 
 function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
