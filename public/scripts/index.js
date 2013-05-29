@@ -104,7 +104,7 @@ function obtainPieStatData() {
         console.log(plat_inst);
         console.log(app_inst);
         drawPieChart(plat_inst, 'Platform', 'Installations', 'platinstchart');
-        drawPieChart(app_inst, 'Applications', 'Installations', 'platinstchart');
+        drawPieChart(app_inst, 'Applications', 'Installations', 'appinstchart');
     });
 }
 
