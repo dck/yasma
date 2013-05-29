@@ -52,7 +52,7 @@ exports.getPlayersStat = function(cb, game) {
 }
 
 exports.getAppStat = function(cb, platform, app) {
-	var left = 'SELECT app, platform, month(date) AS "month", count(*) AS count FROM ';
+	var left = 'SELECT app, platform, month(date) AS month, count(*) AS count FROM ';
 	var right = '';
 
 	if (platform == -1 && app == -1)
