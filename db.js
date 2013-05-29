@@ -75,9 +75,9 @@ exports.getAppStat = function(cb, platform, app) {
 	}
 	sql_req1 += ' GROUP BY date';
 	sql_req2 += ' GROUP BY date';
-	connection.query(sql_req1, function(err, installs, fields) {
+	connection.query(sql_req1, function(err, installs, fields1) {
 		if (err) throw err;
-		connection.query(sql_req2, function(err, launches, fields) {
+		connection.query(sql_req2, function(err, launches, fields2) {
 			if (err) throw err;
 			cb(JSON.stringify(installs),JSON.stringify(launches));
 		});
