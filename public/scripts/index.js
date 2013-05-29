@@ -78,6 +78,8 @@ function obtainGraphData(users) {
     $.get('/appstats/' + platform + '/' + app, function(data) {
         var installs = data[0];
         var launches = data[1];
+        console.log(installs);
+        console.log(launches);
         drawLineChart(installs,'Installations','installschart');
         drawLineChart(launches,'Launches','launcheschart');
     });
