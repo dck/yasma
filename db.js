@@ -54,18 +54,17 @@ exports.getPlayersStat = function(cb, game) {
 exports.getAppStat = function(cb, platform, app) {
 	var empty = 'Choose';
 	var sql_req = 'SELECT * from installations_stat';
-	platform = connection.escape(platform);
-	app = connection.escape(app);
-	if (platform=empty && app == empty)
+
+	if (platform === -1 && app === -1)
 	{
 	}
-	else if (app == empty)
+	else if (app === -1)
 	{
-		sql_req += ' WHERE platform =' + platform;
+		sql_req += ' WHERE platform =' + connection.escape(platform);
 	}
-	else if (platform == empty)
+	else if (platform === -1)
 	{
-		sql_req += ' WHERE app =' + app;
+		sql_req += ' WHERE app =' + connection.escape(app);
 	}
 	connection.query(sql_req, function(err, data, fields) {
 		if (err) throw err;

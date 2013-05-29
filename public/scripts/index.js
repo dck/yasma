@@ -14,17 +14,11 @@ $( document ).ready(function() {
     });
 
     $('#gapppicker').change(function() {
-        var app = this.value;
-        var platform = ?_?;
-        if (this.selectedIndex) {
-            ///playerstats/:platform/:app
-            $.get('/appstats/' + platfrom + '/' + app, function(data) {
-
-                //drawUserTable(data);
-
-            });
-        }
-    });    
+        obtainGraphData();
+    });
+    $('#gplatformpicker').change(function() {
+        obtainGraphData();
+    }); 
 
 });
 
@@ -40,4 +34,14 @@ function drawUserTable(users) {
 
     var table = new google.visualization.Table(document.getElementById('userlist'));
     table.draw(data, {showRowNumber: true});
+};
+
+function obtainGraphData(users) {
+    var platform = $("#gplatformpicker").val();
+    var app = $("#gapppicker").val();
+    $.get('/appstats/' + platform + '/' + app, function(data) {
+
+        console.log(data);
+
+    });
 };
