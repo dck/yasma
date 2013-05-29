@@ -97,7 +97,7 @@ function drawPieChart(table,name,descr,container) {
 
 
 function obtainPieStatData(users) {
-    $.get('/apppiestats/', function(data) {
+    $.get('/apppiestats', function(data) {
         var plat_inst = data[0];
         var app_inst = data[1];
         console.log(plat_inst);
