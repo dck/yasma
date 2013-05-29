@@ -27,6 +27,15 @@ exports.end = function() {
 	})
 }
 
+exports.getGraphs = function(cb) {
+	connection.query('SELECT name FROM apps union all\
+		SELECT name FROM platforms union all', function(err, ret, fields) {
+		if (err) throw err;
+		cb(ret[0],
+		   ret[1]);
+	});
+}
+
 exports.getGames = function(cb) {
 	connection.query('SELECT name FROM apps', function(err, apps, fields) {
 		if (err) throw err;
