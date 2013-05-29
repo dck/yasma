@@ -58,7 +58,7 @@ function drawLineChart(table,descr,container) {
     var rows = [];
     rows.push(['Month',descr]);
     for (var i = 0; i<table.length; i++) {
-        rows.push([table[i].month, table[i].count]);
+        rows.push([int(table[i].month), table[i].count]);
     }
 
     var data = google.visualization.arrayToDataTable(rows);
