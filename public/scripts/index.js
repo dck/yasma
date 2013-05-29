@@ -79,10 +79,6 @@ function drawLineChart(table,descr,container) {
     chart.draw(data, options);
 };
 
-<<<<<<< HEAD
-function obtainGraphData(platform, app) {
-
-=======
 function drawPieChart(table,name,descr,container) {
     var rows = [name,descr];
     for (var i = 0; i<table.length; i++) {
@@ -114,7 +110,6 @@ function obtainPieStatData(users) {
 function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
->>>>>>> 5eae81b09f3b8fe8d2aa819f6c12840e4bfda242
     $.get('/appstats/' + platform + '/' + app, function(data) {
         var installs = data[0];
         var launches = data[1];
