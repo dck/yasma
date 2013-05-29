@@ -12,8 +12,21 @@ $( document ).ready(function() {
             });
         }
     });
-});
 
+    $('#gapppicker').change(function() {
+        var app = this.value;
+        var platform = ?_?;
+        if (this.selectedIndex) {
+            ///playerstats/:platform/:app
+            $.get('/appstats/' + platfrom + '/' + app, function(data) {
+
+                //drawUserTable(data);
+
+            });
+        }
+    });    
+
+});
 
 function drawUserTable(users) {
     var data = new google.visualization.DataTable();
@@ -27,5 +40,4 @@ function drawUserTable(users) {
 
     var table = new google.visualization.Table(document.getElementById('userlist'));
     table.draw(data, {showRowNumber: true});
-
 };

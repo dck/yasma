@@ -55,3 +55,14 @@ exports.getPlayerStats = function(req, res){
     }
     db.getPlayersStat(cb, req.params.game);
 };
+
+exports.getAppStats = function(req, res){
+    var cb = function(data) {
+        res.writeHead(200, {
+            'Content-Type': 'application/json',
+            'Content-Length': data.length
+        });
+        res.end(data);
+    }
+    db.getAppStat(cb, req.params.platform, req.params.app);
+};
