@@ -52,27 +52,35 @@ exports.getPlayersStat = function(cb, game) {
 }
 
 exports.getAppStat = function(cb, platform, app) {
-	var sql_req = 'SELECT app, platform, date, count(*) AS count from installations_stat';
+	var sql_req1 = 'SELECT app, platform, date, count(*) AS count from installations_stat';
+	var sql_req2 = 'SELECT app, platform, date, count(*) AS count from launches_stat';
 
 	if (platform == -1 && app == -1)
 	{
 	}
 	else if (app == -1)
 	{
-		sql_req += ' WHERE platform =' + connection.escape(platform);
+		sql_req1 += ' WHERE platform =' + connection.escape(platform);
+		sql_req2 += ' WHERE platform =' + connection.escape(platform);
 	}
 	else if (platform == -1)
 	{
-		sql_req += ' WHERE app =' + connection.escape(app);
+		sql_req1 += ' WHERE app =' + connection.escape(app);
+		sql_req2 += ' WHERE app =' + connection.escape(app);
 	}
 	else
 	{
-		sql_req += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
+		sql_req1 += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
+		sql_req2 += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
 	}
-	sql_req += ' GROUP BY date';
-	connection.query(sql_req, function(err, data, fields) {
+	sql_req1 += ' GROUP BY date';
+	sql_req2 += ' GROUP BY date';
+	connection.query(sql_req1, function(err, installs, fields) {
 		if (err) throw err;
-		cb(JSON.stringify(data));
+		connection.query(sql_req1, function(err, launches, fields) {
+			if (err) throw err;
+			cb(JSON.stringify(installs),JSON.stringify(launches));
+		}
 	});
 }
 
