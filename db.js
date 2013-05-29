@@ -71,11 +71,11 @@ exports.getAppStat = function(cb, platform, app) {
 		right += ' WHERE app =' + connection.escape(app) + ' and platform=' + connection.escape(platform);
 	}
 	right += ' GROUP BY month';
-	connection.query(left + 'installations_stat' + right, function(err, installs, fields1) {
+	connection.query(left + 'installations_stat' + right, function(err, installs, fields) {
 		if (err) throw err;
-		connection.query(left + 'launches_stat' + right, function(err, launches, fields2) {
+		connection.query(left + 'launches_stat' + right, function(err, launches, fields) {
 			if (err) throw err;
-			cb([JSON.stringify(installs),JSON.stringify(launches)]);
+			cb(JSON.stringify([installs,launches]));
 		});
 	});
 }
