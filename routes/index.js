@@ -22,8 +22,8 @@ exports.graphs = function(req, res){
             title: req.app.settings.config.title,
             logo: req.app.settings.config.logo,
             description: req.app.settings.config.description,
-            apps_c: apps,
-            platforms_c: platforms
+            apps: apps,
+            platforms: platforms
         });
     }
     db.getGraphs(cb);
