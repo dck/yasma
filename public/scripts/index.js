@@ -75,9 +75,10 @@ function drawLineChart(table,descr,container) {
 function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
-    $.get('/appstats/' + platform + '/' + app, function(installs,launches) {
-    	console.log(installs);
-    	console.log(launches);
+    $.get('/appstats/' + platform + '/' + app, function(data) {
+        console.log(data);
+        var installs = data[0];
+        var launches = data[1];
         drawLineChart(installs,'Installations','installschart');
         drawLineChart(launches,'Launches','launcheschart');
     });

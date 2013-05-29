@@ -79,7 +79,7 @@ exports.getAppStat = function(cb, platform, app) {
 		if (err) throw err;
 		connection.query(sql_req2, function(err, launches, fields2) {
 			if (err) throw err;
-			cb(JSON.stringify(installs),JSON.stringify(launches));
+			cb(JSON.stringify([installs, launches]));
 		});
 	});
 }
