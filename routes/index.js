@@ -23,7 +23,7 @@ exports.graphs = function(req, res){
             logo: req.app.settings.config.logo,
             description: req.app.settings.config.description,
             apps_c: apps,
-            platforms_c: players
+            platforms_c: platforms
         });
     }
     db.getGraphs(cb);

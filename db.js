@@ -28,11 +28,12 @@ exports.end = function() {
 }
 
 exports.getGraphs = function(cb) {
-	connection.query('SELECT name FROM apps union all\
-		SELECT name FROM platforms union all', function(err, ret, fields) {
+	connection.query('SELECT name FROM apps', function(err, apps, fields) {
 		if (err) throw err;
-		cb(ret[0].name,
-		   ret[1].name);
+		connection.query('SELECT name FROM platforms', function(err, platforms, fields) {
+			if (err) throw err;
+			cb(apps,platforms);
+		}
 	});
 }
 
