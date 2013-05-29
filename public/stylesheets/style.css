@@ -78,6 +78,13 @@ body {
   margin: 10px;
   font-variant: small-caps;
   border-radius: 10px;
+  transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+}
+.secondcolor {
+  background-color: #86d17c !important;
 }
 #userlist {
   width: 80%;
@@ -142,4 +149,5 @@ body {
   font-variant: small-caps;
   font-size: 18px;
   font-family: "Courier New";
+  color: #fcfcfc;
 }

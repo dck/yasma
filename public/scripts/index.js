@@ -1,14 +1,23 @@
 google.load('visualization', '1', {packages:['table','corechart']});
 
 $( document ).ready(function() {
+    $("#menu a").each(function() {
+        $(this).hover(
+            function(){
+                $(this).addClass("secondcolor");
+            },
+            function(){
+                $(this).removeClass("secondcolor");
+            }
+            );
+    });
+
     $(".statscontainer").animate({
                 opacity: 1,
             }, 
             2000,
             function(){}
         );
-
-
 
     $('#apppicker').change(function() {
         var game = this.value;
@@ -49,7 +58,7 @@ function drawLineChart(table) {
     var rows = [];
     rows.push(['Month','Installations']);
     for (var i = 0; i<table.length; i++) {
-        rows.push([i, table[i].count);
+        rows.push([i, table[i].count]);
     }
 
     var data = google.visualization.arrayToDataTable(rows);
