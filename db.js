@@ -32,8 +32,8 @@ exports.getGraphs = function(cb) {
 		if (err) throw err;
 		connection.query('SELECT name FROM platforms', function(err, platforms, fields) {
 			if (err) throw err;
-			cb(apps,platforms);
-		}
+			cb(apps, platforms);
+		});
 	});
 }
 
