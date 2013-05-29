@@ -143,12 +143,11 @@ a.main {
   float: left;
   color: #fcfcfc;
   margin-bottom: 15px;
-  width: 300px;
+  width: 390px;
   font-variant: small-caps;
   font-size: 18px;
 }
 .statscontainer .number {
-  color: #383838;
   font-variant: small-caps;
   font-size: 18px;
   font-family: "Courier New";

@@ -4,7 +4,7 @@ db = require('../db')
  */
 
 exports.index = function(req, res){
-    var cb = function(apps) {
+    var callBackFunc = function(apps) {
         res.render('index', {
             title: req.app.settings.config.title,
             logo: req.app.settings.config.logo,
@@ -12,12 +12,12 @@ exports.index = function(req, res){
             apps: apps
         });
     }
-    db.getGames(cb);
+    db.getGames(callBackFunc);
 
 };
 
 exports.graphs = function(req, res){
-    var cb = function(apps, platforms) {
+    var callBackFunc = function(apps, platforms) {
         res.render('graphs', {
             title: req.app.settings.config.title,
             logo: req.app.settings.config.logo,
@@ -26,11 +26,11 @@ exports.graphs = function(req, res){
             platforms: platforms
         });
     }
-    db.getGraphs(cb);
+    db.getGraphs(callBackFunc);
 };
 
 exports.stats = function(req, res){
-    var cb = function(players, apps, installs, plays) {
+    var callBackFunc = function(players, apps, installs, plays) {
         res.render('stats', {
             title: req.app.settings.config.title,
             logo: req.app.settings.config.logo,
@@ -42,38 +42,38 @@ exports.stats = function(req, res){
 
         });
     }
-    db.getStats(cb);
+    db.getStats(callBackFunc);
 };
 
 exports.getPlayerStats = function(req, res){
-    var cb = function(data) {
+    var callBackFunc = function(data) {
         res.writeHead(200, {
             'Content-Type': 'application/json',
             'Content-Length': data.length
         });
         res.end(data);
     }
-    db.getPlayersStat(cb, req.params.game);
+    db.getPlayersStat(callBackFunc, req.params.game);
 };
 
 exports.getAppStats = function(req, res){
-    var cb = function(data) {
+    var callBackFunc = function(data) {
         res.writeHead(200, {
             'Content-Type': 'application/json',
             'Content-Length': data.length
         });
         res.end(data);
     }
-    db.getAppStat(cb, req.params.platform, req.params.app);
+    db.getAppStat(callBackFunc, req.params.platform, req.params.app);
 };
 
 exports.getAppPieStats = function(req, res){
-    var cb = function(data) {
+    var callBackFunc = function(data) {
         res.writeHead(200, {
             'Content-Type': 'application/json',
             'Content-Length': data.length
         });
         res.end(data);
     }
-    db.getAppPieStat(cb);
+    db.getAppPieStat(callBackFunc);
 };
