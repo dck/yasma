@@ -101,10 +101,12 @@ function obtainPieStatData() {
     $.get('/apppiestats', function(data) {
         var plat_inst = data[0];
         var app_inst = data[1];
-        console.log(plat_inst);
-        console.log(app_inst);
+        var plat_laun = data[2];
+        var app_laun = data[3];
         drawPieChart(plat_inst, 'Platform', 'Installations', 'platinstchart');
         drawPieChart(app_inst, 'Applications', 'Installations', 'appinstchart');
+        drawPieChart(plat_laun, 'Platform', 'Launches', 'platlaunchart');
+        drawPieChart(app_laun, 'Applications', 'Launches', 'applaunchart');
     });
 }
 

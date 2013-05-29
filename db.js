@@ -85,8 +85,13 @@ exports.getAppPieStat = function(cb) {
 		if (err) throw err;
 		connection.query('SELECT count(*) AS count, app AS name FROM installations_stat GROUP BY app;', function(err, app_inst, fields) {
 			if (err) throw err;
-			console.log([plat_inst, app_inst])
-			cb(JSON.stringify([plat_inst, app_inst]));
+			connection.query('SELECT count(*) AS count, app AS name FROM launches_stat GROUP BY platform;', function(err, plat_laun, fields) {
+				if (err) throw err;
+				connection.query('SELECT count(*) AS count, app AS name FROM launches_stat GROUP BY app;', function(err, app_laun, fields) {
+					if (err) throw err;
+					cb(JSON.stringify([plat_inst,app_inst,plat_laun,app_laun]));
+				});
+			});
 		});
 	});
 }
