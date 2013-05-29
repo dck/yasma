@@ -55,14 +55,14 @@ exports.getAppStat = function(cb, platform, app) {
 	var empty = 'Choose';
 	var sql_req = 'SELECT * from installations_stat';
 
-	if (platform === -1 && app === -1)
+	if (platform == -1 && app == -1)
 	{
 	}
-	else if (app === -1)
+	else if (app == -1)
 	{
 		sql_req += ' WHERE platform =' + connection.escape(platform);
 	}
-	else if (platform === -1)
+	else if (platform == -1)
 	{
 		sql_req += ' WHERE app =' + connection.escape(app);
 	}

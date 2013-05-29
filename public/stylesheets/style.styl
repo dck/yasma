@@ -2,6 +2,7 @@ logoColor = #383838
 descrColor = #898989
 footerColor = #999999
 mainColor = #7ca5d1
+secondColor = #86D17C
 backgroundColor = #fcfcfc
 
 html, body, p, div, h1. h2, h3, span
@@ -25,8 +26,12 @@ body
     font: 50px sans-serif, Helvetica, Arial
     margin-top: 60px
     letter-spacing: 0.3em
+
 #logo:first-letter
     color: mainColor
+
+#logo:hover:first-letter
+    color: secondColor
 
 #descr
     color: descrColor
@@ -117,12 +122,13 @@ body
 .statscontainer
     width: 60%
     padding: 15px
-    background: descrColor
+    background: mainColor
     padding-left: 40px
     border-radius: 10px
     padding-top: 28px
     margin-left: 140px
     text-align: left
+    opacity: 0
 
 .statscontainer .title
     float: left
@@ -135,4 +141,5 @@ body
 .statscontainer .number
     color: logoColor
     font-variant: small-caps
-    font-size: 18px    
+    font-size: 18px
+    font-family: "Courier New"    
