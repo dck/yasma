@@ -1,6 +1,15 @@
 google.load('visualization', '1', {packages:['table','corechart']});
 
 $( document ).ready(function() {
+    $(".statscontainer").animate({
+                opacity: 1,
+            }, 
+            2000,
+            function(){}
+        );
+
+
+
     $('#apppicker').change(function() {
         var game = this.value;
         if (this.selectedIndex) {
