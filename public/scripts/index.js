@@ -15,7 +15,7 @@ $( document ).ready(function() {
     $(".statscontainer").animate({
                 opacity: 1,
             }, 
-            1000,
+            700,
             function(){}
         );
 
@@ -42,7 +42,6 @@ $( document ).ready(function() {
         obtainGraphData(platform, app);
     });
     obtainGraphData(-1, -1);
-
     obtainPieStatData();
 });
 
