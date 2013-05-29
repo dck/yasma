@@ -54,7 +54,7 @@ function drawUserTable(users) {
     table.draw(data, {showRowNumber: true});
 };
 
-function drawLineChart(table) {
+function drawLineChart(table, container) {
     var rows = [];
     rows.push(['Month','Installations']);
     for (var i = 0; i<table.length; i++) {
@@ -68,15 +68,15 @@ function drawLineChart(table) {
       hAxis: {title: 'Time',  titleTextStyle: {color: 'red'}}
     };
 
-    var chart = new google.visualization.AreaChart(document.getElementById('graphcontainer'));
+    var chart = new google.visualization.AreaChart(document.getElementById(container));
     chart.draw(data, options);
 };
 
 function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
-    $.get('/appstats/' + platform + '/' + app, function(data) {
-        console.log(data);
-        drawLineChart(data);
+    $.get('/appstats/' + platform + '/' + app, function(installs,launches) {
+        drawLineChart(installs,'installschart');
+        drawLineChart(launches,'launcheschart');
     });
 };
