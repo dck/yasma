@@ -43,6 +43,7 @@ $( document ).ready(function() {
     });
     obtainGraphData(-1, -1);
 
+    obtainPieStatData();
 });
 
 function drawUserTable(users) {
@@ -78,8 +79,42 @@ function drawLineChart(table,descr,container) {
     chart.draw(data, options);
 };
 
+<<<<<<< HEAD
 function obtainGraphData(platform, app) {
 
+=======
+function drawPieChart(table,name,descr,container) {
+    var rows = [name,descr];
+    for (var i = 0; i<table.length; i++) {
+        rows.push([table[i].name, table[i].count]);
+    }
+
+    var data = google.visualization.arrayToDataTable(rows);
+
+    var options = {
+        title: descr+' number',
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById(container));
+    chart.draw(data, options);
+}
+
+
+function obtainPieStatData(users) {
+    $.get('/apppiestats/', function(data) {
+        var plat_inst = data[0];
+        var app_inst = data[1];
+        console.log(plat_inst);
+        console.log(app_inst);
+        drawPieChart(plat_inst, 'Platform', 'Installations', 'platinstchart');
+        drawPieChart(plat_inst, 'Applications', 'Installations', 'appinstchart');
+    });
+}
+
+function obtainGraphData(users) {
+    var platform = $("#gplatformpicker").val();
+    var app = $("#gapppicker").val();
+>>>>>>> 5eae81b09f3b8fe8d2aa819f6c12840e4bfda242
     $.get('/appstats/' + platform + '/' + app, function(data) {
         var installs = data[0];
         var launches = data[1];
