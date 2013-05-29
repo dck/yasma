@@ -32,11 +32,16 @@ $( document ).ready(function() {
     });
 
     $('#gapppicker').change(function() {
-        obtainGraphData();
+        var platform = $("#gplatformpicker").val();
+        var app = $("#gapppicker").val();
+        obtainGraphData(platform, app);
     });
     $('#gplatformpicker').change(function() {
-        obtainGraphData();
+        var platform = $("#gplatformpicker").val();
+        var app = $("#gapppicker").val();
+        obtainGraphData(platform, app);
     });
+    obtainGraphData(-1, -1);
 
 });
 
@@ -73,9 +78,8 @@ function drawLineChart(table,descr,container) {
     chart.draw(data, options);
 };
 
-function obtainGraphData(users) {
-    var platform = $("#gplatformpicker").val();
-    var app = $("#gapppicker").val();
+function obtainGraphData(platform, app) {
+
     $.get('/appstats/' + platform + '/' + app, function(data) {
         var installs = data[0];
         var launches = data[1];
