@@ -54,9 +54,9 @@ function drawUserTable(users) {
     table.draw(data, {showRowNumber: true});
 };
 
-function drawLineChart(table, container) {
+function drawLineChart(table,descr,container) {
     var rows = [];
-    rows.push(['Month','Installations']);
+    rows.push(['Month',descr]);
     for (var i = 0; i<table.length; i++) {
         rows.push([i, table[i].count]);
     }
@@ -64,7 +64,7 @@ function drawLineChart(table, container) {
     var data = google.visualization.arrayToDataTable(rows);
 
     var options = {
-      title: 'Installations number',
+      title: descr+'number',
       hAxis: {title: 'Time',  titleTextStyle: {color: 'red'}}
     };
 
@@ -76,7 +76,7 @@ function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
     $.get('/appstats/' + platform + '/' + app, function(installs,launches) {
-        drawLineChart(installs,'installschart');
-        drawLineChart(launches,'launcheschart');
+        drawLineChart(installs,'Installations','installschart');
+        drawLineChart(launches,'Launches','launcheschart');
     });
 };
