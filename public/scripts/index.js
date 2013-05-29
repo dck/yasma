@@ -36,7 +36,7 @@ $( document ).ready(function() {
     });
     $('#gplatformpicker').change(function() {
         obtainGraphData();
-    }); 
+    });
 
 });
 
@@ -65,7 +65,8 @@ function drawLineChart(table,descr,container) {
 
     var options = {
         title: descr+' number',
-        hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}}
+        hAxis: {title: 'Months',  titleTextStyle: {color: 'red'}},
+        colors: ['#86D17C']
     };
 
     var chart = new google.visualization.AreaChart(document.getElementById(container));
