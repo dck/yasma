@@ -52,7 +52,6 @@ exports.getPlayersStat = function(cb, game) {
 }
 
 exports.getAppStat = function(cb, platform, app) {
-	var empty = 'Choose';
 	var sql_req = 'SELECT app, platform, date, count(*) AS count from installations_stat';
 
 	if (platform == -1 && app == -1)
