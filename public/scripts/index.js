@@ -96,8 +96,8 @@ function drawPieChart(table,name,descr,container) {
 }
 
 
-function obtainPieStatData(users) {
-    $.get('/apppiestats/', function(data) {
+function obtainPieStatData() {
+    $.get('/apppiestats', function(data) {
         var plat_inst = data[0];
         var app_inst = data[1];
         console.log(plat_inst);
@@ -107,14 +107,10 @@ function obtainPieStatData(users) {
     });
 }
 
-function obtainGraphData(users) {
-    var platform = $("#gplatformpicker").val();
-    var app = $("#gapppicker").val();
+function obtainGraphData(platform, app) {
     $.get('/appstats/' + platform + '/' + app, function(data) {
         var installs = data[0];
         var launches = data[1];
-        console.log(installs);
-        console.log(launches);
         drawLineChart(installs,'Installations','installschart');
         drawLineChart(launches,'Launches','launcheschart');
     });
