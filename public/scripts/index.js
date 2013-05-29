@@ -76,6 +76,7 @@ function obtainGraphData(users) {
     var platform = $("#gplatformpicker").val();
     var app = $("#gapppicker").val();
     $.get('/appstats/' + platform + '/' + app, function(installs,launches) {
+    	console.log(launches)
         drawLineChart(installs,'Installations','installschart');
         drawLineChart(launches,'Launches','launcheschart');
     });
